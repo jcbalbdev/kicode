@@ -1,5 +1,5 @@
 ---
-import Button from "./Button.astro";
+import Button from "../ui/Button.astro";
 
 const navLinksLeft = [
   { label: "Producto", href: "#producto" },
@@ -116,13 +116,11 @@ const navLinksRight = [
     gap: 2rem;
   }
 
-  /* Logo a la izquierda */
   .logo {
     display: flex;
     flex-shrink: 0;
   }
 
-  /* Nav central */
   .nav-center {
     flex: 1;
     display: flex;
@@ -140,7 +138,6 @@ const navLinksRight = [
     transform: scale(1.05);
   }
 
-  /* Navegación */
   .nav-links {
     display: flex;
     align-items: center;
@@ -178,14 +175,12 @@ const navLinksRight = [
     width: 100%;
   }
 
-  /* Botón CTA */
   .header-cta {
     display: flex;
     flex-shrink: 0;
     margin-left: auto;
   }
 
-  /* Mobile menu button */
   .mobile-menu-btn {
     display: none;
     flex-direction: column;
@@ -218,7 +213,6 @@ const navLinksRight = [
     transform: rotate(-45deg) translate(7px, -7px);
   }
 
-  /* Mobile menu */
   .mobile-menu {
     display: none;
     max-height: 0;
@@ -256,7 +250,6 @@ const navLinksRight = [
     margin-top: 1rem;
   }
 
-  /* Responsive */
   @media (max-width: 1024px) {
     .navbar {
       gap: 1rem;
@@ -284,7 +277,6 @@ const navLinksRight = [
       height: 48px;
     }
 
-    /* Ocultar navegación desktop */
     .nav-center {
       display: none;
     }
@@ -293,7 +285,6 @@ const navLinksRight = [
       display: none;
     }
 
-    /* Mostrar botón hamburguesa */
     .mobile-menu-btn {
       display: flex;
     }
@@ -311,7 +302,6 @@ const navLinksRight = [
       mobileMenu.classList.toggle("active");
     });
 
-    // Close menu when clicking on a link
     const mobileLinks = mobileMenu.querySelectorAll("a");
     mobileLinks.forEach((link) => {
       link.addEventListener("click", () => {
@@ -332,6 +322,6 @@ const navLinksRight = [
       }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll(); // run on load
+    onScroll();
   }
 </script>

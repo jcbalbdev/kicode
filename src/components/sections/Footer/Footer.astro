@@ -1,0 +1,102 @@
+---
+// Footer de la landing page
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/logo-kicode.png" alt="kicode" class="footer-logo" />
+        <p>Automatiza tu negocio con IA y nocode</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Producto</h4>
+          <a href="#producto">Características</a>
+          <a href="#como-funciona">Cómo funciona</a>
+          <a href="#recursos">Recursos</a>
+        </div>
+        <div class="footer-column">
+          <h4>Recursos</h4>
+          <a href="#">Blog</a>
+          <a href="#">Guías</a>
+          <a href="#">Templates</a>
+        </div>
+        <div class="footer-column">
+          <h4>Síguenos</h4>
+          <a href="#" target="_blank">Instagram</a>
+          <a href="#" target="_blank">LinkedIn</a>
+          <a href="#" target="_blank">Substack</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 kicode. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-text);
+    color: white;
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .footer-logo {
+    width: 120px;
+    margin-bottom: var(--spacing-sm);
+    filter: brightness(0) invert(1);
+  }
+
+  .footer-brand p {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .footer-column h4 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+  }
+
+  .footer-column a {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+  }
+
+  .footer-column a:hover {
+    color: white;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

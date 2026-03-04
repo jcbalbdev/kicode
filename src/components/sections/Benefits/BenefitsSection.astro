@@ -1,0 +1,69 @@
+---
+import BenefitCard from "./BenefitCard.astro";
+---
+
+<section class="benefits">
+  <div class="container">
+    <div class="benefits-header">
+      <h2 class="section-title">Tu negocio, en piloto automático</h2>
+      <p class="section-subtitle">
+        Kicode hace el trabajo repetitivo para que tú te enfoques en lo que
+        importa
+      </p>
+    </div>
+    <div class="benefits-grid">
+      <BenefitCard
+        icon="⚡"
+        title="Respuesta instantánea 24/7"
+        description="Tu negocio atiende clientes aunque estés dormido. Sin demoras, sin clientes perdidos."
+        stat="El 78% de clientes elige al primero que responde"
+      />
+      <BenefitCard
+        icon="📅"
+        title="Agendamiento automático"
+        description="Los clientes reservan su cita sin que tú intervengas. Tu calendario siempre actualizado."
+        stat="Reduce no-shows hasta un 40% con recordatorios"
+      />
+      <BenefitCard
+        icon="💬"
+        title="Cero apps nuevas"
+        description="Todo funciona desde WhatsApp, que tus clientes ya usan. Sin instalaciones ni curva de aprendizaje."
+        stat="+2 mil millones de usuarios activos en WhatsApp"
+      />
+      <BenefitCard
+        icon="🚀"
+        title="Listo en 48 horas"
+        description="Sin meses de implementación. Configuramos todo por ti y te acompañamos en cada paso."
+        stat="Setup completo + capacitación incluida"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefits {
+    background: radial-gradient(
+      circle at 30% 80%,
+      #eff6ff 0%,
+      #ffffff 50%,
+      #fffbeb 100%
+    );
+  }
+
+  .benefits-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  @media (max-width: 768px) {
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

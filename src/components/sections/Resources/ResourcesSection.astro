@@ -1,0 +1,44 @@
+---
+import ResourceCard from "./ResourceCard.astro";
+---
+
+<section class="resources" id="recursos">
+  <div class="container">
+    <h2 class="section-title">Recursos gratuitos</h2>
+    <p class="section-subtitle">
+      Aprende a automatizar tu negocio con nocode e IA
+    </p>
+    <div class="grid-4">
+      <ResourceCard
+        icon="📚"
+        title="Guía: Automatización para Negocios"
+        description="10 procesos que puedes automatizar hoy sin saber programar"
+        tag="Gratis"
+      />
+      <ResourceCard
+        icon="🎥"
+        title="WhatsApp Business para PyMEs"
+        description="Cómo configurar y aprovechar WhatsApp Business al máximo"
+        tag="Gratis"
+      />
+      <ResourceCard
+        icon="⚡"
+        title="Calculadora de ROI"
+        description="Descubre cuánto dinero pierdes por mala gestión de citas"
+        tag="Gratis"
+      />
+      <ResourceCard
+        icon="🛠️"
+        title="Templates de Make.com"
+        description="Flujos listos para usar en tus automatizaciones"
+        tag="Gratis"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .resources {
+    background: var(--color-bg-secondary);
+  }
+</style>

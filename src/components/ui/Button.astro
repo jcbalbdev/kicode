@@ -38,16 +38,16 @@ const href = targetId.startsWith("#") ? targetId : `#${targetId}`;
   .button-3d {
     position: relative;
     display: inline-block;
-    padding-bottom: 8px; /* Espacio para que se vea el rectángulo inferior */
+    padding-bottom: 8px;
   }
 
   /* Rectángulo inferior - más ancho en ambos lados */
   .button-bottom {
     position: absolute;
     bottom: 0;
-    left: -6px; /* Se extiende a la izquierda */
-    right: -6px; /* Se extiende a la derecha */
-    height: 8px; /* Altura del rectángulo inferior */
+    left: -6px;
+    right: -6px;
+    height: 8px;
     background: #eeeff3;
     border-radius: 16px;
     transition: height 0.15s ease;
@@ -115,18 +115,18 @@ const href = targetId.startsWith("#") ? targetId : `#${targetId}`;
     height: 56px;
   }
 
-  /* Efecto hover - cambio sutil de color */
+  /* Efecto hover */
   .button-wrapper:hover .button-top {
     background: #fafafa;
   }
 
-  /* Efecto active/click - el rectángulo superior baja y el inferior se reduce */
+  /* Efecto active/click */
   .button-wrapper:active .button-top {
-    top: 4px; /* Baja el rectángulo superior */
+    top: 4px;
   }
 
   .button-wrapper:active .button-sm .button-bottom {
-    height: 56px; /* Reduce altura del rectángulo inferior */
+    height: 56px;
   }
 
   .button-wrapper:active .button-md .button-bottom {

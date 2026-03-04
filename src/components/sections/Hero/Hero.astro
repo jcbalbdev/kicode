@@ -1,0 +1,162 @@
+---
+import LogosCarousel from "./LogosCarousel.astro";
+---
+
+<section class="hero">
+  <div class="hero-container">
+    <!-- Headline con efecto tachado -->
+    <h1 class="hero-headline">
+      Tu negocio <span class="word-wrapper">
+        <span class="strikethrough">está</span>
+        <span class="handwritten">estaba</span>
+      </span>
+      <br />
+      fuera de control
+    </h1>
+
+    <!-- Sección con cuadrícula que va desde el subtítulo hasta los logos -->
+    <div class="grid-section">
+      <!-- Subtítulo -->
+      <p class="hero-subtitle">
+        En Kicode ponemos tu negocio en piloto automático
+      </p>
+
+      <!-- Carousel infinito de logos -->
+      <LogosCarousel />
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Importar fuente manuscrita (Caveat como alternativa a Figma Hand) */
+  @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;500;600;700;800;900&display=swap");
+
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 2rem 6rem;
+    background: radial-gradient(
+      circle at 30% 20%,
+      #eff6ff 0%,
+      #ffffff 40%,
+      #fffbeb 100%
+    );
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-headline {
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #1d1d1f;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .word-wrapper {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .strikethrough {
+    position: relative;
+    text-decoration: line-through;
+    text-decoration-color: #ef4444;
+    text-decoration-thickness: 4px;
+  }
+
+  .handwritten {
+    font-family: "Caveat", cursive;
+    color: #ef4444;
+    font-size: 1.2em;
+    font-weight: 500;
+    position: absolute;
+    top: -0.7em;
+    right: -0.3em;
+    transform: rotate(-5deg);
+    white-space: nowrap;
+  }
+
+  .hero-subtitle {
+    font-family: "DM Sans", sans-serif;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 500;
+    color: #6e6e73;
+    margin-bottom: 0;
+    padding: 2rem 0 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .grid-section {
+    width: 100%;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 2px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 2px);
+    background-size: 82px 82px;
+    background-position: center center;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.4) 20%,
+      rgba(0, 0, 0, 0.8) 40%,
+      black 70%,
+      black 90%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.4) 20%,
+      rgba(0, 0, 0, 0.8) 40%,
+      black 70%,
+      black 90%,
+      transparent 100%
+    );
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 70vh;
+      padding: 4rem 1.5rem;
+    }
+
+    .hero-headline {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-headline {
+      font-size: 2rem;
+    }
+
+    .handwritten {
+      font-size: 1.1em;
+    }
+
+    .hero-subtitle {
+      font-size: 1.125rem;
+    }
+  }
+</style>

@@ -32,7 +32,7 @@ const { icon, title, description, solution, image } = Astro.props;
   .flip-card {
     perspective: 1000px;
     width: 100%;
-    aspect-ratio: 9 / 16; /* Vertical format like a smartphone screen */
+    aspect-ratio: 9 / 16;
   }
 
   .flip-inner {
@@ -47,7 +47,6 @@ const { icon, title, description, solution, image } = Astro.props;
     transform: rotateY(180deg);
   }
 
-  /* Frente y reverso comparten posición */
   .flip-front,
   .flip-back {
     position: absolute;
@@ -63,7 +62,6 @@ const { icon, title, description, solution, image } = Astro.props;
     text-align: center;
   }
 
-  /* Frente */
   .flip-front {
     background: white;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
@@ -107,7 +105,6 @@ const { icon, title, description, solution, image } = Astro.props;
     letter-spacing: 0.03em;
   }
 
-  /* Reverso */
   .flip-back {
     background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
     transform: rotateY(180deg);

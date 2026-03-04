@@ -1,0 +1,103 @@
+---
+import ContactForm from "./ContactForm.astro";
+---
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-content">
+      <div class="contact-info">
+        <h2>¿Listo para automatizar?</h2>
+        <p>
+          Agenda una demo de 15 minutos y te mostramos cómo funciona en tu
+          negocio.
+        </p>
+        <div class="contact-methods">
+          <a
+            href="https://wa.me/1234567890"
+            class="contact-method"
+            target="_blank"
+          >
+            <div class="method-icon">💬</div>
+            <div>
+              <h4>WhatsApp</h4>
+              <p>Respuesta inmediata</p>
+            </div>
+          </a>
+          <div class="contact-method">
+            <div class="method-icon">📧</div>
+            <div>
+              <h4>Email</h4>
+              <p>hola@kicode.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ContactForm />
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    background: var(--color-bg-secondary);
+  }
+
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: start;
+  }
+
+  .contact-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .contact-info > p {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: white;
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: transform 0.3s;
+  }
+
+  .contact-method:hover {
+    transform: translateX(8px);
+  }
+
+  .method-icon {
+    font-size: 2rem;
+  }
+
+  .contact-method h4 {
+    margin-bottom: 0.25rem;
+  }
+
+  .contact-method p {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .contact-content {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

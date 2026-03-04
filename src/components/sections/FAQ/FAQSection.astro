@@ -1,0 +1,38 @@
+---
+import FAQItem from "./FAQItem.astro";
+---
+
+<section class="faq" id="faq">
+  <div class="container">
+    <h2 class="section-title">Preguntas frecuentes</h2>
+    <div class="faq-list">
+      <FAQItem
+        question="¿Es difícil de usar?"
+        answer="Para nada. Es más simple que usar Instagram. Configuramos todo por ti y te damos capacitación de 1 hora."
+      />
+      <FAQItem
+        question="¿Necesito cambiar mi número de WhatsApp?"
+        answer="No necesariamente. Podemos trabajar con tu número actual o configurar uno nuevo según prefieras."
+      />
+      <FAQItem
+        question="¿Qué pasa si el sistema falla?"
+        answer="Ofrecemos soporte 24/7 y garantía de uptime 99.9%. Si algo falla, lo resolvemos inmediatamente."
+      />
+      <FAQItem
+        question="¿Cuánto tiempo tarda la implementación?"
+        answer="48 horas desde que comenzamos. Incluye configuración completa, pruebas y capacitación."
+      />
+      <FAQItem
+        question="¿Funciona para cualquier tipo de negocio?"
+        answer="Sí. Salones, consultorios, talleres, coaches, clínicas veterinarias, etc. Lo adaptamos a tu industria."
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-list {
+    max-width: 800px;
+    margin: var(--spacing-lg) auto 0;
+  }
+</style>

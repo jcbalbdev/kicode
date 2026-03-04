@@ -1,0 +1,60 @@
+---
+import Step from "./Step.astro";
+---
+
+<section class="how-it-works" id="como-funciona">
+  <div class="container">
+    <h2 class="section-title">Cómo funciona</h2>
+    <div class="steps">
+      <Step
+        number={1}
+        title="Cliente escribe por WhatsApp"
+        description="Tu cliente envía un mensaje solicitando agendar una cita"
+      />
+      <div class="step-arrow">→</div>
+      <Step
+        number={2}
+        title="Sistema responde al instante"
+        description="Muestra horarios disponibles en tiempo real basados en tu calendario"
+      />
+      <div class="step-arrow">→</div>
+      <Step
+        number={3}
+        title="Cliente elige y confirma"
+        description="Selecciona el horario que más le convenga con un simple clic"
+      />
+      <div class="step-arrow">→</div>
+      <Step
+        number={4}
+        title="Recordatorios automáticos"
+        description="Envía notificaciones antes de la cita para reducir no-shows"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-lg);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+
+  .step-arrow {
+    font-size: 2rem;
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .step-arrow {
+      display: none;
+    }
+
+    .steps {
+      flex-direction: column;
+    }
+  }
+</style>
