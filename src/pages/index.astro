@@ -1,0 +1,839 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Button from "../components/Button.astro";
+import ProblemCard from "../components/ProblemCard.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import ResourceCard from "../components/ResourceCard.astro";
+import FAQItem from "../components/FAQItem.astro";
+---
+
+<Layout title="kicode - Automatiza tu negocio">
+	<Header />
+
+	<main>
+		<!-- Hero Section -->
+		<Hero />
+
+		<!-- Problem Section -->
+		<section class="problem">
+			<div class="container">
+				<h2 class="section-title">¿Te suena familiar?</h2>
+				<div class="grid-4">
+					<ProblemCard
+						image="/tarjeta1.png"
+						icon="📱"
+						title="Pierdes clientes"
+						description="No respondes WhatsApp lo suficientemente rápido y tus clientes se van con la competencia"
+						solution="Un bot de WhatsApp responde automáticamente en segundos, 24/7, sin que tengas que estar pendiente del celular."
+					/>
+					<ProblemCard
+						image="/tarjeta1.png"
+						icon="📱"
+						title="Pierdes clientes"
+						description="No respondes WhatsApp lo suficientemente rápido y tus clientes se van con la competencia"
+						solution="Un bot de WhatsApp responde automáticamente en segundos, 24/7, sin que tengas que estar pendiente del celular."
+					/>
+					<ProblemCard
+						image="/tarjeta1.png"
+						icon="📱"
+						title="Pierdes clientes"
+						description="No respondes WhatsApp lo suficientemente rápido y tus clientes se van con la competencia"
+						solution="Un bot de WhatsApp responde automáticamente en segundos, 24/7, sin que tengas que estar pendiente del celular."
+					/>
+					<ProblemCard
+						image="/tarjeta1.png"
+						icon="📱"
+						title="Pierdes clientes"
+						description="No respondes WhatsApp lo suficientemente rápido y tus clientes se van con la competencia"
+						solution="Un bot de WhatsApp responde automáticamente en segundos, 24/7, sin que tengas que estar pendiente del celular."
+					/>
+				</div>
+			</div>
+		</section>
+
+		<!-- Benefits Section -->
+		<section class="benefits">
+			<div class="container">
+				<div class="benefits-header">
+					<h2 class="section-title">Tu negocio, en piloto automático</h2>
+					<p class="section-subtitle">
+						Kicode hace el trabajo repetitivo para que tú te enfoques en lo que
+						importa
+					</p>
+				</div>
+				<div class="benefits-grid">
+					<div class="benefit-card">
+						<div class="benefit-icon">⚡</div>
+						<div class="benefit-content">
+							<h3>Respuesta instantánea 24/7</h3>
+							<p>
+								Tu negocio atiende clientes aunque estés dormido. Sin demoras,
+								sin clientes perdidos.
+							</p>
+							<span class="benefit-stat"
+								>El 78% de clientes elige al primero que responde</span
+							>
+						</div>
+					</div>
+
+					<div class="benefit-card">
+						<div class="benefit-icon">📅</div>
+						<div class="benefit-content">
+							<h3>Agendamiento automático</h3>
+							<p>
+								Los clientes reservan su cita sin que tú intervengas. Tu
+								calendario siempre actualizado.
+							</p>
+							<span class="benefit-stat"
+								>Reduce no-shows hasta un 40% con recordatorios</span
+							>
+						</div>
+					</div>
+
+					<div class="benefit-card">
+						<div class="benefit-icon">💬</div>
+						<div class="benefit-content">
+							<h3>Cero apps nuevas</h3>
+							<p>
+								Todo funciona desde WhatsApp, que tus clientes ya usan. Sin
+								instalaciones ni curva de aprendizaje.
+							</p>
+							<span class="benefit-stat"
+								>+2 mil millones de usuarios activos en WhatsApp</span
+							>
+						</div>
+					</div>
+
+					<div class="benefit-card">
+						<div class="benefit-icon">🚀</div>
+						<div class="benefit-content">
+							<h3>Listo en 48 horas</h3>
+							<p>
+								Sin meses de implementación. Configuramos todo por ti y te
+								acompañamos en cada paso.
+							</p>
+							<span class="benefit-stat"
+								>Setup completo + capacitación incluida</span
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- How it Works -->
+		<section class="how-it-works" id="como-funciona">
+			<div class="container">
+				<h2 class="section-title">Cómo funciona</h2>
+				<div class="steps">
+					<div class="step">
+						<div class="step-number">1</div>
+						<h3>Cliente escribe por WhatsApp</h3>
+						<p>Tu cliente envía un mensaje solicitando agendar una cita</p>
+					</div>
+					<div class="step-arrow">→</div>
+					<div class="step">
+						<div class="step-number">2</div>
+						<h3>Sistema responde al instante</h3>
+						<p>
+							Muestra horarios disponibles en tiempo real basados en tu
+							calendario
+						</p>
+					</div>
+					<div class="step-arrow">→</div>
+					<div class="step">
+						<div class="step-number">3</div>
+						<h3>Cliente elige y confirma</h3>
+						<p>Selecciona el horario que más le convenga con un simple clic</p>
+					</div>
+					<div class="step-arrow">→</div>
+					<div class="step">
+						<div class="step-number">4</div>
+						<h3>Recordatorios automáticos</h3>
+						<p>Envía notificaciones antes de la cita para reducir no-shows</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Resources Section -->
+		<section class="resources" id="recursos">
+			<div class="container">
+				<h2 class="section-title">Recursos gratuitos</h2>
+				<p class="section-subtitle">
+					Aprende a automatizar tu negocio con nocode e IA
+				</p>
+				<div class="grid-4">
+					<ResourceCard
+						icon="📚"
+						title="Guía: Automatización para Negocios"
+						description="10 procesos que puedes automatizar hoy sin saber programar"
+						tag="Gratis"
+					/>
+					<ResourceCard
+						icon="🎥"
+						title="WhatsApp Business para PyMEs"
+						description="Cómo configurar y aprovechar WhatsApp Business al máximo"
+						tag="Gratis"
+					/>
+					<ResourceCard
+						icon="⚡"
+						title="Calculadora de ROI"
+						description="Descubre cuánto dinero pierdes por mala gestión de citas"
+						tag="Gratis"
+					/>
+					<ResourceCard
+						icon="🛠️"
+						title="Templates de Make.com"
+						description="Flujos listos para usar en tus automatizaciones"
+						tag="Gratis"
+					/>
+				</div>
+			</div>
+		</section>
+
+		<!-- FAQ Section -->
+		<section class="faq" id="faq">
+			<div class="container">
+				<h2 class="section-title">Preguntas frecuentes</h2>
+				<div class="faq-list">
+					<FAQItem
+						question="¿Es difícil de usar?"
+						answer="Para nada. Es más simple que usar Instagram. Configuramos todo por ti y te damos capacitación de 1 hora."
+					/>
+					<FAQItem
+						question="¿Necesito cambiar mi número de WhatsApp?"
+						answer="No necesariamente. Podemos trabajar con tu número actual o configurar uno nuevo según prefieras."
+					/>
+					<FAQItem
+						question="¿Qué pasa si el sistema falla?"
+						answer="Ofrecemos soporte 24/7 y garantía de uptime 99.9%. Si algo falla, lo resolvemos inmediatamente."
+					/>
+					<FAQItem
+						question="¿Cuánto tiempo tarda la implementación?"
+						answer="48 horas desde que comenzamos. Incluye configuración completa, pruebas y capacitación."
+					/>
+					<FAQItem
+						question="¿Funciona para cualquier tipo de negocio?"
+						answer="Sí. Salones, consultorios, talleres, coaches, clínicas veterinarias, etc. Lo adaptamos a tu industria."
+					/>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section class="contact" id="contact">
+			<div class="container">
+				<div class="contact-content">
+					<div class="contact-info">
+						<h2>¿Listo para automatizar?</h2>
+						<p>
+							Agenda una demo de 15 minutos y te mostramos cómo funciona en tu
+							negocio.
+						</p>
+						<div class="contact-methods">
+							<a
+								href="https://wa.me/1234567890"
+								class="contact-method"
+								target="_blank"
+							>
+								<div class="method-icon">💬</div>
+								<div>
+									<h4>WhatsApp</h4>
+									<p>Respuesta inmediata</p>
+								</div>
+							</a>
+							<div class="contact-method">
+								<div class="method-icon">📧</div>
+								<div>
+									<h4>Email</h4>
+									<p>hola@kicode.com</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<form class="contact-form">
+						<h3>Solicita tu demo</h3>
+						<input type="text" placeholder="Nombre completo" required />
+						<input type="email" placeholder="Email" required />
+						<input type="tel" placeholder="WhatsApp" required />
+						<select required>
+							<option value="">Tipo de negocio</option>
+							<option>Salón de belleza / Barbershop</option>
+							<option>Consultorio médico / Dental</option>
+							<option>Taller mecánico</option>
+							<option>Coach / Consultor</option>
+							<option>Otro</option>
+						</select>
+						<textarea
+							placeholder="Cuéntanos sobre tu negocio (opcional)"
+							rows="4"></textarea>
+						<Button variant="primary" href="#">Agendar Demo Gratis</Button>
+					</form>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-content">
+					<div class="footer-brand">
+						<img src="/logo-kicode.png" alt="kicode" class="footer-logo" />
+						<p>Automatiza tu negocio con IA y nocode</p>
+					</div>
+					<div class="footer-links">
+						<div class="footer-column">
+							<h4>Producto</h4>
+							<a href="#producto">Características</a>
+							<a href="#como-funciona">Cómo funciona</a>
+							<a href="#recursos">Recursos</a>
+						</div>
+						<div class="footer-column">
+							<h4>Recursos</h4>
+							<a href="#">Blog</a>
+							<a href="#">Guías</a>
+							<a href="#">Templates</a>
+						</div>
+						<div class="footer-column">
+							<h4>Síguenos</h4>
+							<a href="#" target="_blank">Instagram</a>
+							<a href="#" target="_blank">LinkedIn</a>
+							<a href="#" target="_blank">Substack</a>
+						</div>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<p>&copy; 2026 kicode. Todos los derechos reservados.</p>
+				</div>
+			</div>
+		</footer>
+	</main>
+</Layout>
+
+<style>
+	:root {
+		/* Updated Blue Palette - Based on Logo */
+		--color-primary: #2563eb;
+		--color-primary-dark: #1d4ed8;
+		--color-primary-light: #60a5fa;
+		--gradient-blue: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
+		--gradient-blue-subtle: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+
+		/* Base Colors */
+		--color-bg: #ffffff;
+		--color-bg-secondary: #f9fafb;
+		--color-text: #1d1d1f;
+		--color-text-secondary: #6e6e73;
+		--color-border: #e5e7eb;
+
+		/* Spacing */
+		--spacing-xs: 0.5rem;
+		--spacing-sm: 1rem;
+		--spacing-md: 2rem;
+		--spacing-lg: 4rem;
+		--spacing-xl: 6rem;
+
+		/* Typography */
+		--font-sans:
+			-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+			sans-serif;
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: var(--font-sans);
+		color: var(--color-text);
+		background: var(--color-bg);
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 var(--spacing-md);
+	}
+
+	/* Hero Section */
+	.hero {
+		padding: var(--spacing-xl) 0;
+		background: var(--gradient-blue-subtle);
+	}
+
+	.hero-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--spacing-lg);
+		align-items: center;
+	}
+
+	.tag {
+		display: inline-block;
+		background: #d1fae5;
+		color: #065f46;
+		padding: 0.5rem 1rem;
+		border-radius: 24px;
+		font-size: 0.875rem;
+		font-weight: 600;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.hero h1 {
+		font-size: clamp(2.5rem, 5vw, 3.5rem);
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		margin-bottom: var(--spacing-md);
+		line-height: 1.1;
+	}
+
+	.gradient-text {
+		background: var(--gradient-blue);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.hero-description {
+		font-size: 1.25rem;
+		color: var(--color-text-secondary);
+		margin-bottom: var(--spacing-md);
+		line-height: 1.6;
+	}
+
+	.cta-group {
+		display: flex;
+		gap: var(--spacing-sm);
+		flex-wrap: wrap;
+	}
+
+	.hero-image img {
+		width: 100%;
+		height: auto;
+		border-radius: 24px;
+	}
+
+	/* Section Common Styles */
+	section {
+		padding: var(--spacing-xl) 0;
+	}
+
+	.section-title {
+		font-size: clamp(2rem, 4vw, 3rem);
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: var(--spacing-md);
+		letter-spacing: -0.02em;
+	}
+
+	.section-subtitle {
+		text-align: center;
+		font-size: 1.25rem;
+		color: var(--color-text-secondary);
+		margin-bottom: var(--spacing-lg);
+	}
+
+	/* Grid Layouts */
+	.grid-3 {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: var(--spacing-md);
+		margin-top: var(--spacing-lg);
+	}
+
+	.grid-4 {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: var(--spacing-md);
+		margin-top: var(--spacing-lg);
+	}
+
+	/* Problem Section */
+	.problem {
+		background: radial-gradient(
+			circle at 43% 43%,
+			#eff6ff 0%,
+			#ffffff 40%,
+			#fffbeb 100%
+		);
+	}
+
+	/* Solution Section */
+	.solution-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--spacing-lg);
+		align-items: center;
+	}
+
+	.solution-text h2 {
+		font-size: 2.5rem;
+		margin-bottom: var(--spacing-md);
+		line-height: 1.2;
+	}
+
+	.solution-text p {
+		font-size: 1.25rem;
+		color: var(--color-text-secondary);
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.highlight {
+		background: var(--gradient-blue);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		font-weight: 600;
+	}
+
+	.phone-mockup {
+		background: var(--gradient-blue);
+		border-radius: 32px;
+		padding: var(--spacing-md);
+		box-shadow: 0 20px 60px rgba(37, 99, 235, 0.2);
+	}
+
+	.chat-message {
+		background: white;
+		padding: var(--spacing-sm);
+		border-radius: 16px;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.chat-message.sent {
+		background: #eff6ff;
+	}
+
+	.options {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-xs);
+		margin-top: var(--spacing-sm);
+	}
+
+	.options button {
+		background: white;
+		border: 1px solid var(--color-border);
+		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: 12px;
+		cursor: pointer;
+		transition: all 0.2s;
+		font-size: 0.9rem;
+	}
+
+	.options button:hover {
+		border-color: var(--color-primary);
+		transform: scale(1.02);
+	}
+
+	/* Benefits Section */
+	.benefits {
+		background: radial-gradient(
+			circle at 30% 80%,
+			#eff6ff 0%,
+			#ffffff 50%,
+			#fffbeb 100%
+		);
+	}
+
+	.benefits-header {
+		text-align: center;
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.benefits-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--spacing-md);
+	}
+
+	.benefit-card {
+		display: flex;
+		gap: var(--spacing-md);
+		align-items: flex-start;
+		padding: var(--spacing-md);
+		border-radius: 20px;
+		border: 1px solid rgba(0, 0, 0, 0.06);
+		background: rgba(255, 255, 255, 0.7);
+		backdrop-filter: blur(8px);
+		transition:
+			transform 0.25s ease,
+			box-shadow 0.25s ease;
+	}
+
+	.benefit-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 12px 40px rgba(37, 99, 235, 0.1);
+	}
+
+	.benefit-icon {
+		font-size: 2.5rem;
+		line-height: 1;
+		flex-shrink: 0;
+		width: 64px;
+		height: 64px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--gradient-blue-subtle);
+		border-radius: 16px;
+	}
+
+	.benefit-content h3 {
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+		color: var(--color-text);
+	}
+
+	.benefit-content p {
+		font-size: 1rem;
+		color: var(--color-text-secondary);
+		line-height: 1.6;
+		margin-bottom: 0.75rem;
+	}
+
+	.benefit-stat {
+		display: inline-block;
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: var(--color-primary);
+		background: #eff6ff;
+		padding: 0.3rem 0.75rem;
+		border-radius: 20px;
+	}
+
+	/* Features Section (legacy, hidden) */
+	.features {
+		display: none;
+	}
+
+	/* How it Works */
+	.steps {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: var(--spacing-lg);
+		flex-wrap: wrap;
+		gap: var(--spacing-md);
+	}
+
+	.step {
+		flex: 1;
+		min-width: 200px;
+		text-align: center;
+	}
+
+	.step-number {
+		width: 64px;
+		height: 64px;
+		border-radius: 50%;
+		background: var(--gradient-blue);
+		color: white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 2rem;
+		font-weight: 700;
+		margin: 0 auto var(--spacing-sm);
+	}
+
+	.step h3 {
+		font-size: 1.25rem;
+		margin-bottom: var(--spacing-xs);
+	}
+
+	.step-arrow {
+		font-size: 2rem;
+		color: var(--color-text-secondary);
+	}
+
+	/* Resources Section */
+	.resources {
+		background: var(--color-bg-secondary);
+	}
+
+	/* FAQ Section */
+	.faq-list {
+		max-width: 800px;
+		margin: var(--spacing-lg) auto 0;
+	}
+
+	/* Contact Section */
+	.contact {
+		background: var(--color-bg-secondary);
+	}
+
+	.contact-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--spacing-lg);
+		align-items: start;
+	}
+
+	.contact-info h2 {
+		font-size: 2.5rem;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.contact-info > p {
+		font-size: 1.25rem;
+		color: var(--color-text-secondary);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.contact-methods {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-sm);
+	}
+
+	.contact-method {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-sm);
+		padding: var(--spacing-sm);
+		background: white;
+		border-radius: 16px;
+		text-decoration: none;
+		color: var(--color-text);
+		transition: transform 0.3s;
+	}
+
+	.contact-method:hover {
+		transform: translateX(8px);
+	}
+
+	.method-icon {
+		font-size: 2rem;
+	}
+
+	.contact-method h4 {
+		margin-bottom: 0.25rem;
+	}
+
+	.contact-method p {
+		color: var(--color-text-secondary);
+		font-size: 0.9rem;
+	}
+
+	.contact-form {
+		background: white;
+		padding: var(--spacing-md);
+		border-radius: 24px;
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+	}
+
+	.contact-form h3 {
+		font-size: 1.5rem;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.contact-form input,
+	.contact-form select,
+	.contact-form textarea {
+		width: 100%;
+		padding: 0.875rem;
+		border: 2px solid var(--color-border);
+		border-radius: 12px;
+		font-size: 1rem;
+		margin-bottom: var(--spacing-sm);
+		font-family: var(--font-sans);
+		transition: border-color 0.3s;
+	}
+
+	.contact-form input:focus,
+	.contact-form select:focus,
+	.contact-form textarea:focus {
+		outline: none;
+		border-color: var(--color-primary);
+	}
+
+	/* Footer */
+	.footer {
+		background: var(--color-text);
+		color: white;
+		padding: var(--spacing-xl) 0 var(--spacing-md);
+	}
+
+	.footer-content {
+		display: grid;
+		grid-template-columns: 2fr 3fr;
+		gap: var(--spacing-lg);
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.footer-logo {
+		width: 120px;
+		margin-bottom: var(--spacing-sm);
+		filter: brightness(0) invert(1);
+	}
+
+	.footer-brand p {
+		color: rgba(255, 255, 255, 0.7);
+	}
+
+	.footer-links {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--spacing-md);
+	}
+
+	.footer-column h4 {
+		margin-bottom: var(--spacing-sm);
+		font-size: 1.1rem;
+	}
+
+	.footer-column a {
+		display: block;
+		color: rgba(255, 255, 255, 0.7);
+		text-decoration: none;
+		margin-bottom: 0.5rem;
+		transition: color 0.3s;
+	}
+
+	.footer-column a:hover {
+		color: white;
+	}
+
+	.footer-bottom {
+		text-align: center;
+		padding-top: var(--spacing-md);
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.hero-content,
+		.solution-content,
+		.contact-content,
+		.footer-content {
+			grid-template-columns: 1fr;
+		}
+
+		.step-arrow {
+			display: none;
+		}
+
+		.steps {
+			flex-direction: column;
+		}
+
+		.footer-links {
+			grid-template-columns: 1fr;
+		}
+
+		.grid-3,
+		.grid-4 {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

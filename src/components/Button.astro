@@ -1,0 +1,139 @@
+---
+interface Props {
+  text: string;
+  targetId?: string;
+  size?: "sm" | "md" | "lg";
+  class?: string;
+}
+
+const {
+  text,
+  targetId = "#",
+  size = "md",
+  class: className = "",
+} = Astro.props;
+
+const href = targetId.startsWith("#") ? targetId : `#${targetId}`;
+---
+
+<a href={href} class={`button-wrapper ${className}`}>
+  <div class={`button-3d button-${size}`}>
+    <!-- Rectángulo inferior (base/sombra) - más ancho y alto -->
+    <div class="button-bottom"></div>
+
+    <!-- Rectángulo superior (contenido) -->
+    <div class="button-top">
+      {text}
+    </div>
+  </div>
+</a>
+
+<style>
+  .button-wrapper {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .button-3d {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px; /* Espacio para que se vea el rectángulo inferior */
+  }
+
+  /* Rectángulo inferior - más ancho en ambos lados */
+  .button-bottom {
+    position: absolute;
+    bottom: 0;
+    left: -6px; /* Se extiende a la izquierda */
+    right: -6px; /* Se extiende a la derecha */
+    height: 8px; /* Altura del rectángulo inferior */
+    background: #eeeff3;
+    border-radius: 16px;
+    transition: height 0.15s ease;
+  }
+
+  /* Rectángulo superior - contenido del botón */
+  .button-top {
+    position: relative;
+    display: block;
+    background: #fefefe;
+    border-radius: 16px;
+    font-family:
+      "DM Sans",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+    font-weight: 500;
+    color: #1d1d1f;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    white-space: nowrap;
+    top: 0;
+    transition: top 0.15s ease;
+  }
+
+  /* Tamaño pequeño */
+  .button-sm {
+    padding-bottom: 6px;
+  }
+
+  .button-sm .button-top {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .button-sm .button-bottom {
+    height: 56px;
+  }
+
+  /* Tamaño mediano */
+  .button-md {
+    padding-bottom: 10px;
+  }
+
+  .button-md .button-top {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .button-md .button-bottom {
+    height: 56px;
+  }
+
+  /* Tamaño grande */
+  .button-lg {
+    padding-bottom: 12px;
+  }
+
+  .button-lg .button-top {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+
+  .button-lg .button-bottom {
+    height: 56px;
+  }
+
+  /* Efecto hover - cambio sutil de color */
+  .button-wrapper:hover .button-top {
+    background: #fafafa;
+  }
+
+  /* Efecto active/click - el rectángulo superior baja y el inferior se reduce */
+  .button-wrapper:active .button-top {
+    top: 4px; /* Baja el rectángulo superior */
+  }
+
+  .button-wrapper:active .button-sm .button-bottom {
+    height: 56px; /* Reduce altura del rectángulo inferior */
+  }
+
+  .button-wrapper:active .button-md .button-bottom {
+    height: 56px;
+  }
+
+  .button-wrapper:active .button-lg .button-bottom {
+    height: 56px;
+  }
+</style>
