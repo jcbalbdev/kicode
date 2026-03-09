@@ -1,44 +1,123 @@
 ---
 import ResourceCard from "./ResourceCard.astro";
+import BookOpen from "../../icons/BookOpen.astro";
+import MessageCircle from "../../icons/MessageCircle.astro";
+import Calculator from "../../icons/Calculator.astro";
 ---
 
 <section class="resources" id="recursos">
-  <div class="container">
-    <h2 class="section-title">Recursos gratuitos</h2>
-    <p class="section-subtitle">
-      Aprende a automatizar tu negocio con nocode e IA
-    </p>
-    <div class="grid-4">
-      <ResourceCard
-        icon="📚"
-        title="Guía: Automatización para Negocios"
-        description="10 procesos que puedes automatizar hoy sin saber programar"
-        tag="Gratis"
-      />
-      <ResourceCard
-        icon="🎥"
-        title="WhatsApp Business para PyMEs"
-        description="Cómo configurar y aprovechar WhatsApp Business al máximo"
-        tag="Gratis"
-      />
-      <ResourceCard
-        icon="⚡"
-        title="Calculadora de ROI"
-        description="Descubre cuánto dinero pierdes por mala gestión de citas"
-        tag="Gratis"
-      />
-      <ResourceCard
-        icon="🛠️"
-        title="Templates de Make.com"
-        description="Flujos listos para usar en tus automatizaciones"
-        tag="Gratis"
-      />
+  <div class="resources-grid-bg">
+    <div class="container">
+      <h2 class="section-title">Recursos gratuitos</h2>
+      <p class="section-subtitle">
+        Aprende a automatizar tu negocio con nocode e IA
+      </p>
+      <div class="resources-grid">
+        <ResourceCard
+          title="Guía: Automatización para Negocios"
+          description="10 procesos que puedes automatizar hoy sin saber programar"
+          slug="guia-automatizacion"
+        >
+          <BookOpen size={24} slot="icon" />
+        </ResourceCard>
+        <ResourceCard
+          title="WhatsApp Business para PyMEs"
+          description="Cómo configurar y aprovechar WhatsApp Business al máximo"
+          slug="whatsapp-business"
+        >
+          <MessageCircle size={24} slot="icon" />
+        </ResourceCard>
+        <ResourceCard
+          title="Calculadora de ROI"
+          description="Descubre cuánto dinero pierdes por mala gestión de citas"
+          slug="calculadora-roi"
+        >
+          <Calculator size={24} slot="icon" />
+        </ResourceCard>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .resources {
-    background: var(--color-bg-secondary);
+    background: radial-gradient(
+      circle at 30% 20%,
+      #eff6ff 0%,
+      #ffffff 40%,
+      #fffbeb 100%
+    );
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Cuadrícula sutil (mismo patrón que Hero) */
+  .resources-grid-bg {
+    width: 100%;
+    position: relative;
+    padding: var(--spacing-xl, 6rem) 0;
+  }
+
+  .resources-grid-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 2px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 2px);
+    background-size: 82px 82px;
+    background-position: center center;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.3) 15%,
+      rgba(0, 0, 0, 0.6) 30%,
+      black 50%,
+      rgba(0, 0, 0, 0.6) 70%,
+      rgba(0, 0, 0, 0.3) 85%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.3) 15%,
+      rgba(0, 0, 0, 0.6) 30%,
+      black 50%,
+      rgba(0, 0, 0, 0.6) 70%,
+      rgba(0, 0, 0, 0.3) 85%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .resources .section-title {
+    color: #000000;
+  }
+
+  .resources .section-subtitle {
+    color: #2d2d30;
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md, 2rem);
+    margin-top: var(--spacing-lg, 4rem);
+  }
+
+  @media (max-width: 960px) {
+    .resources-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .resources-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 </style>
