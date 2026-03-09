@@ -1,0 +1,124 @@
+---
+interface Props {
+  text: string;
+  href?: string;
+  type?: "button" | "submit";
+  fullWidth?: boolean;
+  class?: string;
+  id?: string;
+}
+
+const {
+  text,
+  href,
+  type = "button",
+  fullWidth = false,
+  class: className = "",
+  id,
+} = Astro.props;
+
+const Tag = href ? "a" : "button";
+---
+
+<Tag
+  href={href || undefined}
+  type={!href ? type : undefined}
+  class={`btn-icon-wrapper ${fullWidth ? "btn-icon-full" : ""} ${className}`}
+  id={id}
+>
+  <div class="btn-icon-3d">
+    <div class="btn-icon-shadow"></div>
+    <div class="btn-icon-top">
+      <slot />
+      <span>{text}</span>
+    </div>
+  </div>
+</Tag>
+
+<style>
+  /* ===== Botón tipo tecla 3D ===== */
+  .btn-icon-wrapper {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+    font-family: inherit;
+  }
+
+  .btn-icon-3d {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+  }
+
+  .btn-icon-shadow {
+    position: absolute;
+    bottom: 0;
+    left: -3.5px;
+    right: -3.5px;
+    height: 43px;
+    background: #367ddc;
+    border-radius: 12px;
+    transition: height 0.15s ease;
+  }
+
+  .btn-icon-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #408ff8;
+    border-radius: 12px;
+    font-family:
+      "DM Sans",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #fefefe;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    top: 0;
+    transition: top 0.15s ease;
+  }
+
+  .btn-icon-wrapper:hover .btn-icon-top {
+    background: #3b88ed;
+    color: #fefefe;
+  }
+
+  .btn-icon-wrapper:active .btn-icon-top {
+    top: 3px;
+  }
+
+  .btn-icon-wrapper:active .btn-icon-shadow {
+    height: 45px;
+  }
+
+  /* Full width */
+  .btn-icon-full {
+    display: block;
+    width: 100%;
+  }
+
+  .btn-icon-full .btn-icon-3d {
+    display: block;
+  }
+
+  .btn-icon-full .btn-icon-top {
+    justify-content: center;
+  }
+
+  .btn-icon-full .btn-icon-shadow {
+    height: 40px;
+  }
+
+  .btn-icon-full:active .btn-icon-shadow {
+    height: 40px;
+  }
+</style>

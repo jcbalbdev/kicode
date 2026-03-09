@@ -1,0 +1,688 @@
+---
+import Layout from "../../components/layout/Layout.astro";
+import HeaderRecursos from "../../components/layout/HeaderRecursos.astro";
+import ButtonIcon from "../../components/ui/ButtonIcon.astro";
+
+export function getStaticPaths() {
+  const resources = [
+    {
+      slug: "guia-automatizacion",
+      title: "Guía: Automatización para Negocios",
+      description:
+        "Esta guía te enseñará paso a paso cómo automatizar los 10 procesos más comunes en cualquier negocio. Desde la gestión de citas hasta el seguimiento de clientes, aprenderás a implementar flujos automáticos sin necesidad de programar.",
+      shortDescription:
+        "10 procesos que puedes automatizar hoy sin saber programar",
+      pdfUrl: "#",
+    },
+    {
+      slug: "whatsapp-business",
+      title: "WhatsApp Business para PyMEs",
+      description:
+        "Descubre cómo configurar WhatsApp Business desde cero, crear respuestas automáticas, catálogos de productos y aprovechar todas las funcionalidades que esta herramienta ofrece para potenciar la comunicación con tus clientes.",
+      shortDescription:
+        "Cómo configurar y aprovechar WhatsApp Business al máximo",
+      pdfUrl: "#",
+    },
+    {
+      slug: "calculadora-roi",
+      title: "Calculadora de ROI",
+      description:
+        "Con esta calculadora podrás estimar cuánto dinero pierde tu negocio por una gestión manual de procesos. Incluye fórmulas, ejemplos reales y métricas clave para justificar la inversión en automatización.",
+      shortDescription:
+        "Descubre cuánto dinero pierdes por mala gestión de citas",
+      pdfUrl: "#",
+    },
+  ];
+
+  return resources.map((resource) => ({
+    params: { slug: resource.slug },
+    props: resource,
+  }));
+}
+
+const { title, description, shortDescription, pdfUrl } = Astro.props;
+
+/* Código de país por defecto y lista de países */
+const countries = [
+  { code: "+51", flag: "🇵🇪", name: "Perú" },
+  { code: "+52", flag: "🇲🇽", name: "México" },
+  { code: "+54", flag: "🇦🇷", name: "Argentina" },
+  { code: "+56", flag: "🇨🇱", name: "Chile" },
+  { code: "+57", flag: "🇨🇴", name: "Colombia" },
+  { code: "+58", flag: "🇻🇪", name: "Venezuela" },
+  { code: "+34", flag: "🇪🇸", name: "España" },
+  { code: "+591", flag: "🇧🇴", name: "Bolivia" },
+  { code: "+593", flag: "🇪🇨", name: "Ecuador" },
+  { code: "+595", flag: "🇵🇾", name: "Paraguay" },
+  { code: "+598", flag: "🇺🇾", name: "Uruguay" },
+  { code: "+506", flag: "🇨🇷", name: "Costa Rica" },
+  { code: "+503", flag: "🇸🇻", name: "El Salvador" },
+  { code: "+502", flag: "🇬🇹", name: "Guatemala" },
+  { code: "+504", flag: "🇭🇳", name: "Honduras" },
+  { code: "+507", flag: "🇵🇦", name: "Panamá" },
+  { code: "+1", flag: "🇺🇸", name: "Estados Unidos" },
+  { code: "+55", flag: "🇧🇷", name: "Brasil" },
+];
+---
+
+<Layout title={`${title} — kicode`}>
+  <!-- Header simplificado -->
+  <!-- <header class="resource-header">
+    <div class="resource-header-container">
+      <a href="/" class="resource-logo">
+        <img src="/logo-kicode-v2.png" alt="kicode" />
+      </a>
+      <a href="/#recursos" class="back-link">
+        <span>← Ver más recursos</span>
+      </a>
+    </div>
+  </header> -->
+  <HeaderRecursos />
+  <main class="resource-page">
+    <div class="resource-page-container">
+      <div class="resource-card-main">
+        <div class="resource-card-body">
+          <!-- Columna izquierda: info + form -->
+          <div class="resource-info">
+            <h1 class="resource-page-title">{title}</h1>
+            <p class="resource-page-short">{shortDescription}</p>
+            <p class="resource-page-desc">{description}</p>
+            <p class="resource-free-notice">
+              Este es un recurso completamente gratis. Para acceder, completa el
+              formulario.
+            </p>
+
+            <!-- Formulario -->
+            <form
+              id="resource-form"
+              class="resource-form"
+              data-title={title}
+              data-pdf={pdfUrl}
+            >
+              <div class="form-field">
+                <div class="input-3d">
+                  <div class="input-top">
+                    <svg
+                      class="input-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
+                      ></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <input
+                      type="text"
+                      name="nombre"
+                      placeholder="Tu nombre *"
+                      required
+                      autocomplete="name"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <div class="input-3d">
+                  <div class="input-top">
+                    <svg
+                      class="input-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                      ></path>
+                    </svg>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Tu email *"
+                      required
+                      autocomplete="email"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <div class="input-3d">
+                  <div class="input-top phone-input-top">
+                    <div class="country-selector">
+                      <select
+                        name="country_code"
+                        id="country-code-select"
+                        aria-label="Código de país"
+                      >
+                        {
+                          countries.map((c) => (
+                            <option value={c.code} selected={c.code === "+51"}>
+                              {c.flag} {c.code}
+                            </option>
+                          ))
+                        }
+                      </select>
+                      <svg
+                        class="chevron-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="m6 9 6 6 6-6"></path>
+                      </svg>
+                    </div>
+                    <div class="phone-divider"></div>
+                    <input
+                      type="tel"
+                      name="telefono"
+                      placeholder="Tu número *"
+                      required
+                      autocomplete="tel"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Botón de envío -->
+              <ButtonIcon
+                text="Obtener Recurso Gratis"
+                type="submit"
+                fullWidth
+                id="submit-btn"
+                class="submit-btn"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </ButtonIcon>
+
+              <p class="form-disclaimer">
+                Al enviar recibirás el recurso gratis directamente en tu email.
+                Sin spam. 🎁
+              </p>
+            </form>
+
+            <!-- Estado de éxito -->
+            <div
+              id="success-state"
+              class="success-state"
+              style="display: none;"
+            >
+              <div class="success-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
+                  ></path>
+                  <path d="M20 3v4"></path>
+                  <path d="M22 5h-4"></path>
+                  <path d="M4 17v2"></path>
+                  <path d="M5 18H3"></path>
+                </svg>
+              </div>
+              <h2 class="success-title">¡Listo!</h2>
+              <p class="success-message">
+                Revisa tu correo electrónico, te enviamos
+                <strong id="success-resource-name">{title}</strong> directamente a
+                tu bandeja de entrada.
+              </p>
+              <ButtonIcon text="Ver otros recursos" href="/#recursos">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M19 12H5"></path>
+                  <path d="m12 19-7-7 7-7"></path>
+                </svg>
+              </ButtonIcon>
+            </div>
+          </div>
+
+          <!-- Columna derecha: logo -->
+          <div class="resource-visual">
+            <img
+              src="/logo-kicode-v2.png"
+              alt="kicode"
+              class="resource-logo-large"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;500;600;700;800;900&display=swap");
+
+  /* ===== Header ===== */
+  .resource-header {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    z-index: 100;
+    padding: 1rem 0;
+  }
+
+  .resource-header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .resource-logo img {
+    height: 48px;
+    width: auto;
+    display: block;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #2563eb;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: #1d4ed8;
+  }
+
+  /* ===== Page Layout ===== */
+  .resource-page {
+    min-height: 100vh;
+    background: radial-gradient(
+      circle at 30% 20%,
+      #eff6ff 0%,
+      #ffffff 40%,
+      #fffbeb 100%
+    );
+    padding: 6rem 2rem 4rem;
+  }
+
+  .resource-page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  /* ===== Card principal ===== */
+  .resource-card-main {
+    position: relative;
+  }
+
+  .resource-card-body {
+    position: relative;
+    background: #fefefe;
+    border-radius: 28px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  /* ===== Info columna izquierda ===== */
+  .resource-page-title {
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: #1d1d1f;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .resource-page-short {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.1rem;
+    color: #6e6e73;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .resource-page-desc {
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.95rem;
+    color: #86868b;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .resource-free-notice {
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.9rem;
+    color: #1d1d1f;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(37, 99, 235, 0.1);
+  }
+
+  /* ===== Formulario ===== */
+  .resource-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-field {
+    width: 100%;
+  }
+
+  /* Inputs */
+  .input-3d {
+    position: relative;
+  }
+
+  .input-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #fefefe;
+    border-radius: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.75rem 1rem;
+    transition: border-color 0.2s ease;
+  }
+
+  .input-top:focus-within {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+
+  .input-icon {
+    color: #86868b;
+    flex-shrink: 0;
+  }
+
+  .input-top input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.95rem;
+    color: #1d1d1f;
+    min-width: 0;
+  }
+
+  .input-top input::placeholder {
+    color: #b0b0b5;
+  }
+
+  /* Phone input específico */
+  .phone-input-top {
+    gap: 0;
+  }
+
+  .country-selector {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .country-selector select {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.9rem;
+    color: #1d1d1f;
+    padding-right: 1.25rem;
+    cursor: pointer;
+    min-width: 80px;
+  }
+
+  .chevron-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #86868b;
+    pointer-events: none;
+  }
+
+  .phone-divider {
+    width: 1px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.1);
+    margin: 0 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .phone-input-top input {
+    padding-left: 0;
+  }
+
+  /* ===== Botón submit ===== */
+  .submit-btn {
+    margin-top: 0.5rem;
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .form-disclaimer {
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.8rem;
+    color: #86868b;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* ===== Logo visual derecha ===== */
+  .resource-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 300px;
+    background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 50%, #fefce8 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+  }
+
+  .resource-logo-large {
+    width: 160px;
+    height: auto;
+    opacity: 0.9;
+  }
+
+  /* ===== Estado de éxito ===== */
+  .success-state {
+    text-align: center;
+    padding: 1.5rem 0;
+  }
+
+  .success-icon {
+    color: #f59e0b;
+    margin-bottom: 1rem;
+    animation: sparkle 1.5s ease-in-out infinite;
+  }
+
+  @keyframes sparkle {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.85;
+    }
+  }
+
+  .success-title {
+    font-family: "Outfit", sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1d1d1f;
+    margin-bottom: 0.5rem;
+  }
+
+  .success-message {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.05rem;
+    color: #6e6e73;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    .resource-page {
+      padding: 2rem 1rem 3rem;
+    }
+
+    .resource-card-body {
+      grid-template-columns: 1fr;
+      padding: 2rem 1.5rem;
+      gap: 2rem;
+    }
+
+    .resource-visual {
+      min-height: 200px;
+      order: -1;
+    }
+
+    .resource-logo-large {
+      width: 120px;
+    }
+
+    .resource-page-title {
+      font-size: 1.75rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .resource-card-body {
+      padding: 1.5rem 1.25rem;
+    }
+
+    .country-selector select {
+      min-width: 70px;
+      font-size: 0.85rem;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById("resource-form") as HTMLFormElement;
+  const successState = document.getElementById("success-state");
+  const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+
+  if (form && successState && submitBtn) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Desactivar botón
+      submitBtn.disabled = true;
+      const originalContent = submitBtn.querySelector(".btn-icon-top");
+      if (originalContent) {
+        originalContent.textContent = "Enviando...";
+      }
+
+      const formData = new FormData(form);
+      const data = {
+        nombre: formData.get("nombre"),
+        email: formData.get("email"),
+        telefono: `${formData.get("country_code")} ${formData.get("telefono")}`,
+        recurso: form.dataset.title,
+        pdfUrl: form.dataset.pdf,
+      };
+
+      try {
+        // URL del webhook de Google Apps Script
+        // Reemplazar con tu URL real después de hacer deploy
+        const WEBHOOK_URL = "TU_WEBHOOK_URL_AQUI";
+
+        if (WEBHOOK_URL !== "TU_WEBHOOK_URL_AQUI") {
+          await fetch(WEBHOOK_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+        }
+
+        // Mostrar estado de éxito
+        form.style.display = "none";
+        successState.style.display = "block";
+
+        // Actualizar nombre del recurso en el mensaje
+        const resourceName = document.getElementById("success-resource-name");
+        if (resourceName) {
+          resourceName.textContent = data.recurso || "";
+        }
+      } catch (error) {
+        console.error("Error al enviar:", error);
+        // Aún así mostrar éxito si es modo demo
+        form.style.display = "none";
+        successState.style.display = "block";
+      }
+    });
+  }
+</script>

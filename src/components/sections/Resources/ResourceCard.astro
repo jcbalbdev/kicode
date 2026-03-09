@@ -1,54 +1,147 @@
 ---
-const { icon, title, description, tag, href = "#" } = Astro.props;
+import ButtonIcon from "../../ui/ButtonIcon.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+}
+
+const { title, description, slug } = Astro.props;
 ---
 
-<a href={href} class="resource-card">
-  <div class="resource-icon">{icon}</div>
-  <h3>{title}</h3>
-  <p>{description}</p>
-  <span class="resource-tag">{tag}</span>
-</a>
+<div class="resource-card">
+  <!-- Contenido principal de la tarjeta -->
+  <div class="card-body">
+    <!-- Badge "Gratis" esquina superior derecha -->
+    <span class="badge">Gratis</span>
+
+    <!-- Icono del recurso -->
+    <div class="resource-icon-container">
+      <slot name="icon" />
+    </div>
+
+    <!-- Título y descripción -->
+    <h3 class="resource-title">{title}</h3>
+    <p class="resource-description">{description}</p>
+
+    <!-- Botón de descarga tipo tecla -->
+    <ButtonIcon
+      text="Descargar"
+      href={`/recursos/${slug}`}
+      class="download-btn"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" x2="12" y1="15" y2="3"></line>
+      </svg>
+    </ButtonIcon>
+  </div>
+</div>
 
 <style>
+  /* ===== Tarjeta principal ===== */
   .resource-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 24px;
-    text-decoration: none;
-    color: #1d1d1f;
-    transition: all 0.3s ease;
     position: relative;
-    display: block;
   }
 
-  .resource-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  .card-body {
+    position: relative;
+    background: #fefefe;
+    border-radius: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    min-height: 280px;
   }
 
-  .resource-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+  /* ===== Badge "Gratis" — esquina superior derecha ===== */
+  .badge {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: #408ff8;
+    color: #fefefe;
+    font-family:
+      "DM Sans",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: 8px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    z-index: 1;
   }
 
-  .resource-card h3 {
-    font-size: 1.25rem;
+  /* ===== Icono del recurso ===== */
+  .resource-icon-container {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    color: var(--color-primary, #2563eb);
     margin-bottom: 0.5rem;
   }
 
-  .resource-card p {
-    color: #6e6e73;
-    margin-bottom: 1rem;
-    line-height: 1.6;
+  /* ===== Título y descripción ===== */
+  .resource-title {
+    font-family:
+      "DM Sans",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    line-height: 1.35;
+    margin-bottom: 0.25rem;
   }
 
-  .resource-tag {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    background: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
-    color: white;
-    border-radius: 12px;
-    font-size: 0.875rem;
-    font-weight: 600;
+  .resource-description {
+    font-family:
+      "DM Sans",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+    font-size: 0.95rem;
+    color: #6e6e73;
+    line-height: 1.55;
+    flex: 1;
+  }
+
+  /* ===== Botón de descarga ===== */
+  .download-btn {
+    margin-top: 1rem;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    .card-body {
+      padding: 1.5rem;
+      min-height: auto;
+    }
   }
 </style>
