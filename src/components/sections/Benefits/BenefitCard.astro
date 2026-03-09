@@ -28,14 +28,11 @@ const { icon, title, description, stat } = Astro.props;
     border: 1px solid rgba(0, 0, 0, 0.06);
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(8px);
-    transition:
-      transform 0.25s ease,
-      box-shadow 0.25s ease;
+    transition: opacity 0.3s ease;
   }
 
-  .benefit-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.1);
+  .benefits-grid:hover .benefit-card:not(:hover) {
+    opacity: 0.4;
   }
 
   .benefit-icon {

@@ -1,5 +1,26 @@
 ---
-const { icon, title, description, solution, image } = Astro.props;
+const { icon, title, description, solution, image, variant = "default" } = Astro.props;
+
+const variants = {
+  clients: { 
+    bg: "linear-gradient(135deg, #f5a623 0%, #d68910 100%)", 
+    badge: "✦ Clientes Felices" 
+  },
+  agenda: { 
+    bg: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)", 
+    badge: "✦ Agenda Perfecta" 
+  },
+  manual: { 
+    bg: "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)", 
+    badge: "✦ Automatización Total" 
+  },
+  control: { 
+    bg: "linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%)", 
+    badge: "✦ Control Total" 
+  }
+};
+
+const currentVariant = variant && variants[variant as keyof typeof variants] ? variants[variant as keyof typeof variants] : null;
 ---
 
 <div class="flip-card">
@@ -21,8 +42,8 @@ const { icon, title, description, solution, image } = Astro.props;
     </div>
 
     <!-- Reverso: la solución de Kicode -->
-    <div class="flip-back">
-      <div class="solution-badge">✦ Solución Kicode</div>
+    <div class="flip-back" style={`background: ${currentVariant?.bg || 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)'};`}>
+      <div class="solution-badge">{currentVariant?.badge || '✦ Solución Kicode'}</div>
       <p class="solution-text">{solution}</p>
     </div>
   </div>
@@ -127,5 +148,6 @@ const { icon, title, description, solution, image } = Astro.props;
     font-size: 1.05rem;
     line-height: 1.65;
     font-weight: 500;
+    font-style: italic;
   }
 </style>
